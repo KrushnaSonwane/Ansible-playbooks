@@ -1,0 +1,12 @@
+---
+- name: Delete files
+  hosts: all
+  become: yes
+  tasks:
+    - name: Delete file
+      file:
+        path: /tmp/ansible_test_file.txt
+        state: absent
+    - name: Print messgae
+      debug:
+        msg: "file deleted successfully"

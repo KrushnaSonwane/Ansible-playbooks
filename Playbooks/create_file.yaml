@@ -1,0 +1,16 @@
+---
+- name: Create file and print message
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create file
+      file:
+        path: /tmp/ansible_test_file.txt
+        state: touch
+    - name: Add messgae in file
+      lineinfile:
+        path: /tmp/ansible_test_file.txt
+        line: Hi!!, Its Krushna
+    - name: Dislay message
+      debug:
+        msg: "File created successfully"
